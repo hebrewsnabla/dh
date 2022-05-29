@@ -410,6 +410,15 @@ class RDFDH(lib.StreamObject):
         return self.eval_ss or self.eval_os
 
     @timing
+    def sfx2c1e(self):
+        self.mf_s = self.mf_s.sfx2c1e()
+        self.mf_n = self.mf_n.sfx2c1e()
+        return self
+
+    x2c1e = sfx2c1e
+    x2c = x2c1e
+
+    @timing
     def build(self):
         # make sure that grids in SCF run should be the same to other energy evaluations
         self.mf_s.grids = self.mf_n.grids = self.grids
